@@ -1,0 +1,57 @@
+scalar Date
+
+type Payment {
+  _id: ID!
+  roomID: String!
+  checkIn: String
+  checkOut: String
+  nights: Int
+  date: Date
+  paymentInfo: PaymentInfo
+  hostInfo: HostInfo
+  guestInfo: GuestInfo
+  gateway: String
+  status: String
+  update: String
+}
+
+type PaymentInfo {
+  txid: String
+  amount: Int
+  currency: String
+  product_name: String
+  product_category: ProductCategory
+  cus_name: String
+  cus_email: String
+  cus_add1: String
+  cus_phone: String
+  cus_city: String
+  cus_country: String
+  cus_postcode: String
+}
+
+type ProductCategory {
+  name: String
+  type: String
+}
+
+type HostInfo {
+  _id: ID!
+  email: String
+  role: String
+  blocked: Boolean
+  createdAt: String
+}
+
+type GuestInfo {
+  _id: ID!
+  email: String
+  role: String
+  blocked: Boolean
+  name: String
+}
+
+type Query {
+  getAllPayment: [Pending]
+  getPaymentById(id: ID!): Pending
+}

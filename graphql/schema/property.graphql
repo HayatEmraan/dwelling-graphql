@@ -1,0 +1,104 @@
+type Property {
+  _id: ID!
+  name: String
+  location: Location
+  category: Category
+  lat: Float
+  lng: Float
+  capacity: Capacity
+  availability: Availability
+  images: [String]
+  description: String
+  price: Int
+  taxes: Int
+  dateRange: DateRange
+  popular_facilities: Popular
+  facilities: Facilities
+  house_rules: HouseRules
+  payment_methods: Payment
+  reviews: Review
+  author: Author
+  createdAt: String
+  propertyId: ID!
+  host: ID!
+  status: String
+  checkedBy: String
+}
+
+type Popular {
+  image: String
+  name: String
+  offer: Boolean
+  popular: Boolean
+}
+
+type Availability {
+  bedrooms: Int
+  baths: Int
+  guests: Int
+}
+
+type HouseRules {
+  image: String
+  name: String
+  time: String
+  des: String
+}
+type Name {
+  firstName: String
+  lastName: String
+}
+
+type Author {
+  _id: ID!
+  name: Name
+  photo: String
+}
+
+type Payment {
+  providerName: String
+  accepted: Boolean
+  image: String
+}
+
+type Facilities {
+  image: String
+  name: String
+  facilities: [String]
+}
+
+type DateRange {
+  startDate: String
+  endDate: String
+}
+
+type Category {
+  name: String
+  type: String
+}
+
+type Location {
+  city: String
+  state: String
+  division: String
+  country: String
+}
+
+type Capacity {
+  adults: Int
+  children: Int
+  infants: Int
+}
+
+type Review {
+  reviewer_name: String
+  date: String
+  photo: String
+  rating: String
+  comment: String
+}
+
+type Query {
+  getAllProperties: [Property]
+  getPropertyById(id: ID!): Property
+}
