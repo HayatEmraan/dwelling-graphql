@@ -11,16 +11,18 @@ const { location } = require("../../operations/open/location/location");
 const { gettext } = require("../../operations/open/text");
 const router = express.Router();
 
-// get rooms
+// get rooms - in graphql
 router.get("/getrooms", getRooms);
 router.get("/getdetails/:id", getDetails);
 router.get("/category/rooms", getCategoryRooms);
+
+// not in graphql
 router.get("/getsearch", searchResult);
 router.get("/getlocations", location);
 
 // post user
 router.post("/postuser", exitUser, setUser);
 
-router.post("/text", gettext)
+router.post("/text", gettext);
 
 module.exports = router;

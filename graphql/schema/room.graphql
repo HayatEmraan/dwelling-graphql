@@ -10,6 +10,7 @@ type Room {
   description: String
   price: Int
   taxes: Int
+  availability: Availability
   dateRange: DateRange
   popular_facilities: Facilities
   house_rules: HouseRules
@@ -21,6 +22,12 @@ type Room {
   host: ID!
   status: String
   checkedBy: String
+}
+
+type Availability {
+  bedrooms: Int
+  baths: Int
+  guests: Int
 }
 
 type HouseRules {
@@ -86,4 +93,5 @@ type Review {
 type Query {
   getAllRooms: [Room]
   getRoomById(id: ID!): Room
+  getRoomByCategory(category: String): Room
 }

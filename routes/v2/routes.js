@@ -94,9 +94,6 @@ router.patch("/user/unblock", verifyJWT, verifyId, verifyAdmin, unblockUser);
 // get user by cookies
 router.get("/user/getuserbycookie", verifyJWT, getUserByCookie);
 
-
-
-
 router.get("/properties", verifyJWT, verifyId, verifyAdmin, propertyList);
 router.patch(
   "/property/update",
